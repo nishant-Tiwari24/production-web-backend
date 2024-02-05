@@ -1,0 +1,19 @@
+{
+  "name": "basic-backend-deployment",
+  "version": "1.0.0",
+  "description": "a basic backend to deploy",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "node",
+    "deployment"
+  ],
+  "author": "nishant",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2"
+  }
+}
