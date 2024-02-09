@@ -1,19 +1,21 @@
 import mongoose from "mongoose";
+
+const orderItemSchema = new mongoose.Schema({
+    product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
+        required: [true, "Product ID is required"]
+    },
+    quantity: {
+        type: Number,
+        required: [true, "Quantity is required"],
+        min: [1, "Quantity must be at least 1"]
+    }
+},{timestamps: true})
+
 const orderSchema = new mongoose.Schema({
-    products: [
-        {
-            product: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Product",
-                required: [true, "Product ID is required"]
-            },
-            quantity: {
-                type: Number,
-                required: [true, "Quantity is required"],
-                min: [1, "Quantity must be at least 1"]
-            }
-        }
-    ],
+    products: [orderItemSchema],
+    
     totalAmount: {
         type: Number,
         default: 0,
